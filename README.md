@@ -1,31 +1,70 @@
-# Repo is under development!
+# multiclass-classifiers
 
-![eb1b27863813653543914d222ceb9cd0](https://user-images.githubusercontent.com/72878018/158029654-7eeb6607-562b-45d4-a834-d0f5fb3f571a.gif)
+A simple yet complete Python implementation of four classic multiclass classification algorithms from scratch:
 
+- **K-Nearest Neighbors (KNN)**
+- **Perceptron**
+- **Support Vector Machine (SVM)**
+- **Passive-Aggressive (PA)**
 
-<!-- # MulticlassClassifiers
-This repository documents my implemenrations of Machine Learning multi-class linear separators classifiers.
+This project also includes:
+- **Cross-validation** for hyperparameter tuning.
+- **Normalization techniques** (Min-Max and Z-Score).
+- **Evaluation pipeline** for comparing model performance.
 
-## Description
+## Project Structure
+
+```
+multiclass-classifiers/
+├── calibration.py          # Finds optimal hyperparameters via 5-fold cross-validation
+├── classifiers.py          # Core implementations of KNN, Perceptron, SVM, PA
+├── ml\_utils.py             # Utility functions: data shuffling, weight creation, predictions
+├── normalizations.py       # Z-Score and Min-Max normalization
+├── test.py                 # Runs predictions with selected hyperparameters
+└── report.pdf              # Project writeup detailing logic, methods, and results
+````
+
+## Usage
+
+### 1. Run Prediction
+
+```bash
+python test.py <train_x.csv> <train_y.csv> <test_x.csv> <output.txt>
+````
+
+### 2. Find Best Hyperparameters
+
+```bash
+python calibration.py <train_x.csv> <train_y.csv>
+```
+
+## Algorithms Summary
+
+| Algorithm          | Tuned Hyperparameters           | Notes                                         |
+| ------------------ | ------------------------------- | --------------------------------------------- |
+| KNN                | k = 5                           | Performs best without normalization           |
+| Perceptron         | epochs = 90, eta = 0.2          | Learning rate halves on each mistake          |
+| SVM                | epochs = 80, eta = 0.1, λ = 0.8 | Regularized margin-based updates              |
+| Passive-Aggressive | epochs = 190                    | Aggressive updates using margin loss and norm |
+
+All algorithms are implemented using only NumPy - no external ML libraries are used.
+
+## Methodology
+
+* 5-fold cross-validation for parameter tuning
+* Z-Score and Min-Max normalization comparisons
+* Shuffle before training to ensure fair splits
+* Accuracy-based evaluation
+
+## Report
+
+For detailed explanations and implementation logic, see [`report.pdf`](report.pdf).
 
 ## Requirements
 
-## Normalization
+* Python 3.x
+* NumPy
 
-## K-Fold Cross Validation
-
-## Loss Function
-
-## K Nearest Neighbors
-
-## Perceptron
-
-## Support Vector Machine
-
-## Passive Aggressive
-
-## Instructions
-
-## Notes
-
-## Sources -->
+```bash
+pip install numpy
+```
