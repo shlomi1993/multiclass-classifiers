@@ -1,4 +1,4 @@
-# multiclass-classifiers
+# Multiclass Classifiers
 
 A simple yet complete Python implementation of four classic multiclass classification algorithms from scratch:
 
